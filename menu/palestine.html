@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Palestine: Suara Kemanusiaan dan Harapan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a5276; /* Biru tua untuk judul dan aksen */
+            --color-secondary: #e74c3c; /* Merah untuk penekanan */
+            --color-text-dark: #333;
+            --color-text-light: #ecf0f1;
+            --color-bg-light: #fdfdfd;
+            --color-bg-grey: #f0f0f0;
+            --color-border: #ddd;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg-grey);
+            color: var(--color-text-dark);
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        /* --- Header Section --- */
+        .header {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease-out; /* Animasi masuk */
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTsTUty5c3xSyS6vy1pYwh5bqReMAV6WktpPDLLp4H4QGOF-Lrbcwsp3TyGvceBT0fbvXewCGTNDvZ0iCA_LL_goVksiAhIeUJcPqNCbo27') no-repeat center center/cover;
+            z-index: -1;
+            filter: grayscale(30%) blur(3px); /* Efek visual unik */
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+        .header:hover::before {
+            transform: scale(1.02); /* Efek hover pada latar belakang */
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif; /* Font yang lebih artistik */
+            font-size: 4.5em;
+            margin: 0;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            letter-spacing: 2px;
+        }
+        .header p {
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            position: relative; /* Untuk z-index di atas pseudo-element */
+        }
+
+        /* --- Main Content Container --- */
+        .container {
+            max-width: 900px;
+            margin: -60px auto 30px auto; /* Menaikkan container sedikit ke header */
+            padding: 30px 40px;
+            background-color: var(--color-bg-light);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih dalam */
+            position: relative;
+            z-index: 1; /* Pastikan di atas header */
+            animation: fadeInUp 1s ease-out 0.3s forwards; /* Animasi masuk dengan delay */
+            opacity: 0; /* Awalnya tersembunyi untuk animasi */
+        }
+
+        /* --- Section Titles --- */
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5em;
+            color: var(--color-primary);
+            margin-top: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--color-secondary); /* Garis bawah unik */
+            border-radius: 2px;
+        }
+
+        /* --- Article Styling --- */
+        .article {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed var(--color-border);
+            position: relative;
+        }
+        .article:last-child {
+            border-bottom: none;
+            margin-bottom: 30px;
+        }
+        .article h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--color-primary);
+            font-size: 2em;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+        .article h2:hover {
+            color: var(--color-secondary); /* Efek hover pada judul artikel */
+        }
+        .article p {
+            margin-bottom: 1.5em;
+            text-align: justify;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .article .meta {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 20px;
+            text-align: right;
+            font-style: italic;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .article:nth-child(odd) {
+            background-color: #fcfcfc; /* Warna latar belakang bergantian */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- Button Styling --- */
+        .button-container {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--color-secondary), #d35400); /* Gradient untuk tombol */
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px; /* Bentuk pil */
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            border: none;
+            cursor: pointer;
+            animation: pulse 2s infinite ease-in-out; /* Animasi berdenyut */
+        }
+        .button:hover {
+            transform: translateY(-3px) scale(1.02); /* Efek hover lebih menonjol */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, #d35400, var(--color-secondary));
+        }
+
+        /* --- Footer Section --- */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            font-size: 0.9em;
+            margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Keyframe Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3em;
+            }
+            .header p {
+                font-size: 1em;
+            }
+            .container {
+                margin: -40px 15px 20px 15px;
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 2em;
+                margin-top: 30px;
+            }
+            .article h2 {
+                font-size: 1.6em;
+            }
+            .article p {
+                font-size: 1em;
+            }
+            .button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .header p {
+                font-size: 0.9em;
+            }
+            .container {
+                padding: 15px;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            .article h2 {
+                font-size: 1.4em;
+            }
+            .article p {
+                font-size: 0.95em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Free Palestine</h1>
+        <p>Mendedikasikan halaman ini untuk memahami lebih dalam isu Palestina, menyerukan keadilan, dan menyemai harapan untuk perdamaian yang berkelanjutan di tanah suci.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Narasi Sejarah dan Kondisi Saat Ini</h2>
+
+        <div class="article">
+            <h2>Akar Konflik: Perjalanan Sejarah yang Panjang</h2>
+            <p>Memahami konflik di Palestina membutuhkan penelusuran kembali ke akar sejarahnya, yang telah terjalin selama berabad-abad. Dari masa pemerintahan Ottoman, Mandat Inggris, hingga peristiwa Nakba pada tahun 1948 yang menyebabkan pengungsian massal warga Palestina, setiap periode meninggalkan jejak mendalam. Narasi ini penting untuk memahami kompleksitas geopolitik dan kemanusiaan yang terus berlanjut hingga hari ini.</p>
+            <div class="meta">Dipublikasikan: 7 Juni 2025</div>
+        </div>
+
+        <div class="article">
+            <h2>Gaza: Panggilan Kemanusiaan Mendesak</h2>
+            <p>Jalur Gaza adalah wilayah padat penduduk yang menghadapi salah satu krisis kemanusiaan terberat di dunia. Blokade yang berkepanjangan telah membatasi akses terhadap kebutuhan dasar seperti air bersih, listrik, obat-obatan, dan bahan bakar. Konflik bersenjata yang berulang kali pecah semakin memperparah kondisi, menghancurkan infrastruktur dan mengorbankan nyawa warga sipil. Laporan dari berbagai organisasi kemanusiaan internasional secara konsisten menyerukan bantuan darurat dan perlindungan bagi penduduk Gaza.</p>
+            <div class="meta">Dipublikasikan: 7 Juni 2025</div>
+        </div>
+
+        <div class="article">
+            <h2>Upaya Perdamaian dan Harapan Masa Depan</h2>
+            <p>Meskipun tantangan yang besar, berbagai upaya diplomatis dan inisiatif perdamaian terus dilakukan oleh komunitas internasional. Resolusi PBB yang mendukung hak-hak warga Palestina dan solusi dua negara menjadi landasan bagi negosiasi. Suara-suara dari seluruh dunia terus menyuarakan dukungan untuk keadilan, pengakuan diri, dan hak untuk hidup berdampingan secara damai. Harapan akan masa depan yang lebih baik, di mana perdamaian dan keamanan dapat terwujud bagi semua pihak, tetap menjadi pendorong utama.</p>
+            <div class="meta">Dipublikasikan: 7 Juni 2025</div>
+        </div>
+
+        <div class="button-container">
+            <a href="../menu/menu.html" class="button">Kembali ke Beranda</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Suara Kemanusiaan. Dedikasi untuk Keadilan dan Perdamaian.</p>
+    </footer>
+
+</body>
+</html>
