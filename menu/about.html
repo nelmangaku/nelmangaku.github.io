@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        :root {
+            --primary: #62089e;
+            --secondary: #403e41;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--dark);
+            background-color: #6f7074;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: rgb(238, 236, 236);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 90%;
+            margin: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 1.8rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            background: var(--primary);
+            color: rgb(211, 203, 203);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .contact-link:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Me</h1>
+        <p>Saya berinisial N* dan saya memiliki minat yang mendalam pada IT. Keahlian utama saya meliputi pencarian atau DORK, mencari tahu tentang seseorang mulai dari nama,siapa dia,hobi dia apa. Tapi tenang semua itu boong, saya gabisa ngapa ngapain :/</p>
+        
+        <a href="mailto:nel@naelstore.me" class="contact-link">Contact Me</a>
+    </div>
+</body>
+</html>
