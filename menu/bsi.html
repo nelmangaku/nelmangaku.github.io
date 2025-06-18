@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Keamanan BSI - Serangan Ransomware 2023</title>
+    <style>
+        /* Reset CSS dan Variabel */
+        :root {
+            --primary-color: #006641;
+            --secondary-color: #e5f5ee;
+            --accent-color: #ff6b00;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #f9f9f9;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.8rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+        
+        .intro-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .intro-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .intro-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .alert-box {
+            background-color: #fff8e6;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            margin: 3rem 0;
+        }
+        
+        .timeline-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -12px;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            margin: 3rem 0;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .faq-question {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+        
+        .faq-question.active::after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            background-color: white;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+        }
+        
+        .faq-answer.show {
+            padding: 1rem;
+            max-height: 500px;
+        }
+        
+        /* Impact Section */
+        .impact-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .impact-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .impact-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .impact-card h3 i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://iconlogovector.com/uploads/images/2023/11/lg-65571292f0011-bsi.png" alt="BSI Logo" class="logo">
+            <h1>Bank Syariah Indonesia</h1>
+            <p class="subtitle">Informasi Kebocoran Data BSI - Insiden Mei 2023</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#overview">Gambaran Umum</a></li>
+            <li><a href="#timeline">Kronologi</a></li>
+            <li><a href="#impact">Dampak</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#actions">Tindakan BSI</a></li>
+            <li><a href="../menu/menu.html">Kembali</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="overview" class="intro-section">
+            <h2>Insiden Keamanan Siber BSI Mei 2023</h2>
+            <p>Pada bulan Mei 2023, Bank Syariah Indonesia (BSI) menjadi target serangan siber yang dilakukan oleh kelompok ransomware bernama LockBit. Insiden ini menjadi perhatian nasional karena BSI merupakan salah satu bank syariah terbesar di Indonesia.</p>
+            
+            <div class="alert-box">
+                <p><strong>Penting:</strong> BSI menyatakan bahwa data nasabah tetap aman dan sistem perbankan berfungsi normal. Namun, kelompok LockBit mengklaim telah mencuri data dan sempat mempublikasikan sebagian data tersebut di dark web.</p>
+            </div>
+            
+            <p>Serangan ransomware adalah jenis serangan siber di mana pelaku mengenkripsi data korban dan meminta tebusan untuk mengembalikan akses. Dalam kasus ini, LockBit juga mengancam akan mempublikasikan data yang dicuri jika tuntutan mereka tidak dipenuhi.</p>
+        </section>
+        
+        <section id="timeline" class="timeline-section">
+            <h2>Kronologi Kejadian</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Awal Mei 2023</div>
+                        <p>Sistem BSI diduga mengalami infiltrasi oleh kelompok LockBit. Serangan mungkin telah dimulai beberapa hari sebelum terdeteksi.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">8 Mei 2023</div>
+                        <p>LockBit mengklaim bertanggung jawab atas serangan terhadap BSI dan mempublikasikan ancaman mereka di situs mereka di dark web.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">10 Mei 2023</div>
+                        <p>BSI mengeluarkan pernyataan resmi pertama yang mengakui adanya gangguan sistem tetapi menyatakan bahwa data nasabah aman.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">12 Mei 2023</div>
+                        <p>LockBit mempublikasikan sebagian data yang diklaim berasal dari BSI sebagai bukti serangan mereka. Data ini muncul di forum-forum dark web.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-date">15 Mei 2023</div>
+                        <p>Otoritas Jasa Keuangan (OJK) dan BSSN (Badan Siber dan Sandi Negara) mulai terlibat dalam investigasi insiden ini.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-date">18 Mei 2023</div>
+                        <p>BSI menyatakan bahwa sistem mereka telah sepenuhnya pulih dan beroperasi normal. Mereka juga menegaskan tidak membayar tebusan kepada pelaku.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="impact" class="impact-section">
+            <div class="impact-card">
+                <h3><i>📊</i> Dampak Operasional</h3>
+                <p>BSI mengalami gangguan sistem selama beberapa hari yang mempengaruhi beberapa layanan digital, meskipun layanan cabang tetap beroperasi.</p>
+                <p>Transaksi online sempat mengalami keterlambatan pemrosesan selama masa pemulihan sistem.</p>
+            </div>
+            
+            <div class="impact-card">
+                <h3><i>🔒</i> Dampak Keamanan Data</h3>
+                <p>LockBit mengklaim telah mencuri data sensitif termasuk informasi nasabah dan dokumen internal.</p>
+                <p>BSI menyangkal kebocoran data signifikan, namun beberapa sampel data muncul di dark web.</p>
+            </div>
+            
+            <div class="impact-card">
+                <h3><i>📉</i> Dampak Reputasi</h3>
+                <p>Insiden ini mempengaruhi kepercayaan publik terhadap keamanan sistem perbankan syariah.</p>
+                <p>Harga saham BSI sempat mengalami tekanan di hari-hari setelah pengumuman serangan.</p>
+            </div>
+        </section>
+        
+        <section id="faq" class="faq-section">
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Apakah data saya sebagai nasabah BSI aman?</div>
+                    <div class="faq-answer">
+                        <p>BSI menyatakan bahwa data nasabah tetap aman dan tidak ada bukti kebocoran data skala besar. Namun, disarankan untuk memantau aktivitas rekening dan mengganti password secara berkala sebagai langkah pencegahan.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Apa yang harus saya lakukan jika khawatir tentang keamanan data saya?</div>
+                    <div class="faq-answer">
+                        <p>Anda dapat:<br>
+                        1. Memantau mutasi rekening secara rutin<br>
+                        2. Mengganti password/pin secara berkala<br>
+                        3. Mengaktifkan notifikasi transaksi<br>
+                        4. Menghubungi call center BSI jika menemukan aktivitas mencurigakan</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Apakah BSI membayar tebusan kepada hacker?</div>
+                    <div class="faq-answer">
+                        <p>BSI menyatakan tegas bahwa mereka tidak membayar tebusan kepada kelompok LockBit. Bank memilih untuk memulihkan sistem melalui cadangan data mereka sendiri.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Layanan apa saja yang terganggu selama insiden ini?</div>
+                    <div class="faq-answer">
+                        <p>Beberapa layanan digital seperti mobile banking dan internet banking mengalami gangguan intermiten. Namun, layanan di cabang-cabang BSI tetap beroperasi normal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="actions" class="intro-section">
+            <h2>Tindakan yang Dilakukan BSI</h2>
+            <p>BSI telah mengambil beberapa langkah penting menanggapi insiden ini:</p>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li style="margin-bottom: 0.5rem;">Memperkuat sistem keamanan siber dengan bantuan ahli keamanan independen</li>
+                <li style="margin-bottom: 0.5rem;">Bekerja sama dengan otoritas terkait termasuk OJK dan BSSN dalam investigasi</li>
+                <li style="margin-bottom: 0.5rem;">Melakukan audit menyeluruh terhadap sistem dan infrastruktur TI</li>
+                <li style="margin-bottom: 0.5rem;">Meningkatkan pemantauan 24/7 terhadap aktivitas mencurigakan</li>
+                <li style="margin-bottom: 0.5rem;">Memberikan pelatihan tambahan kepada staf tentang keamanan siber</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="https://www.bankbsi.co.id" target="_blank"> Situs Resmi BSI </a>
+                <a href="https://www.ojk.go.id" target="_blank"> Otoritas Jasa Keuangan </a>
+                <a href="https://bssn.go.id" target="_blank">Badan Siber dan Sandi Negara</a>
+            </div>
+            <p class="copyright">© 2023 Informasi Keamanan Siber Bank Syariah Indonesia. Halaman ini dibuat untuk tujuan informasi saja.</p>
+        </div> 
+    </footer>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>

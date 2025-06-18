@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Kebocoran Data Bank Jatim 2021</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        :root {
+            --primary: #f12d13;
+            --primary-dark: #5c2e38;
+            --secondary: #ffc107;
+            --danger: #dc3545;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --white: #ffffff;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+        h3 { font-size: clamp(1.3rem, 3.5vw, 1.8rem); }
+        p { font-size: clamp(1rem, 3vw, 1.1rem); }
+        
+        /* Layout Components */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+            font-weight: 300;
+            margin-top: 1rem;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        /* Bank Logo */
+        .bank-logo {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .bank-logo img {
+            max-height: 80px;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .bank-logo img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background-color: rgba(0, 86, 179, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .highlight-box::before {
+            content: '\f06a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Data List */
+        .data-list {
+            margin: 1.5rem 0;
+        }
+        
+        .data-item {
+            background-color: rgba(0, 86, 179, 0.1);
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .data-item:hover {
+            background-color: rgba(0, 86, 179, 0.2);
+        }
+        
+        .data-item::before {
+            content: '\f05d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(5px);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--primary);
+            z-index: 1;
+        }
+        
+        /* Bank Response */
+        .bank-response {
+            background-color: rgba(40, 167, 69, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+        
+        .bank-response::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--success);
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            background: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Action List */
+        .action-list {
+            margin: 1.5rem 0;
+            list-style-type: none;
+        }
+        
+        .action-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-item::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--primary);
+            margin-right: 1rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .impact-card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary);
+        }
+        
+        .impact-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .impact-card h4 i {
+            margin-right: 0.75rem;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+        
+        .footer-links a i {
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .highlight-box::before,
+            .bank-response::before {
+                display: none;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 1rem;
+            }
+            
+            .timeline-item::before {
+                width: 14px;
+                height: 14px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 2rem 0;
+            }
+            
+            .bank-logo img {
+                max-height: 60px;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Kebocoran Data Bank Jatim 2021</h1>
+                <p class="subtitle">Analisis Komprehensif Insiden Keamanan Siber</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Overview Section -->
+        <section class="card">
+            <div class="bank-logo">
+                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR6mu8yPVDJAhPw2QAL-5JGrMYttFunubZVX1tNwgNKAXCnQGsjr02EEXgidL-Jq7y94t1v9g" alt="Logo Bank Jatim">
+            </div>
+            
+            <h2 class="section-title">Ringkasan Insiden</h2>
+            <p>Pada Oktober 2021, database Bank Pembangunan Daerah Jawa Timur (Bank Jatim atau BJTM) diduga mengalami kebocoran data dan diperjualbelikan di forum daring. Insiden ini menjadi sorotan publik karena melibatkan data sensitif nasabah dan karyawan bank.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Data yang dijual dengan harga fantastis ini berisi informasi nasabah, karyawan, hingga data keuangan pribadi.</strong> Manajemen Bank Jatim menyatakan bahwa intrusi terjadi pada sistem aplikasi pendukung, bukan core system, sehingga data nasabah tetap aman.</p>
+            </div>
+
+            <h3>Detail Data yang Bocor</h3>
+            <div class="data-list">
+                <div class="data-item">Informasi pribadi nasabah (nama, alamat, nomor telepon)</div>
+                <div class="data-item">Data identitas (KTP, NPWP, tanggal lahir)</div>
+                <div class="data-item">Informasi rekening dan riwayat transaksi</div>
+                <div class="data-item">Data lengkap karyawan Bank Jatim</div>
+                <div class="data-item">Dokumen keuangan pribadi dan bisnis</div>
+                <div class="data-item">Informasi kontak darurat nasabah</div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="card">
+            <h2 class="section-title">Kronologi Kejadian</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">Awal Okt 2021</span>
+                    <div class="timeline-content">
+                        <p>Data Bank Jatim mulai muncul di forum underground dan situs jual beli data ilegal. Penjual mengklaim memiliki akses ke database lengkap Bank Jatim dengan harga mencapai $15,000.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">12 Okt 2021</span>
+                    <div class="timeline-content">
+                        <p>Komunitas keamanan siber Indonesia mulai melaporkan temuan ini ke pihak berwenang dan manajemen Bank Jatim. Beberapa sample data dibagikan untuk verifikasi.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">18 Okt 2021</span>
+                    <div class="timeline-content">
+                        <p>Bank Jatim mengeluarkan pernyataan resmi pertama yang mengakui adanya upaya intrusi tetapi menyatakan bahwa sistem inti bank tetap aman dan beroperasi normal.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">25 Okt 2021</span>
+                    <div class="timeline-content">
+                        <p>Otoritas Jasa Keuangan (OJK) dan BSSN mengkonfirmasi sedang melakukan investigasi mendalam terhadap insiden ini bersama dengan tim forensik digital.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-date">Nov 2021</span>
+                    <div class="timeline-content">
+                        <p>Bank Jatim mulai mengirim notifikasi resmi kepada nasabah yang mungkin terdampak dan menawarkan layanan pemantauan data gratis selama 1 tahun.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Response Section -->
+        <section class="card">
+            <h2 class="section-title">Respons Resmi Bank Jatim</h2>
+            <div class="bank-response">
+                <p>"Setelah melakukan investigasi mendalam bersama dengan tim keamanan siber internal dan eksternal, kami menyimpulkan bahwa:</p>
+                <p>1. Intrusi hanya terjadi pada sistem aplikasi pendukung, bukan pada core banking system.</p>
+                <p>2. Data nasabah yang berada pada sistem inti tetap aman dan tidak terganggu.</p>
+                <p>3. Kami telah mengambil langkah-langkah untuk memperkuat sistem keamanan dan mencegah kejadian serupa di masa depan."</p>
+                <p><strong>- Humas Bank Jatim, 20 Oktober 2021</strong></p>
+            </div>
+
+            <h3>Langkah-langkah yang Diambil</h3>
+            <ul class="action-list">
+                <li class="action-item">Memperketat sistem keamanan jaringan dengan teknologi enkripsi terbaru</li>
+                <li class="action-item">Bekerja sama dengan BSSN dan kepolisian untuk investigasi forensik digital</li>
+                <li class="action-item">Melakukan audit keamanan menyeluruh oleh pihak ketiga yang independen</li>
+                <li class="action-item">Program edukasi keamanan siber untuk seluruh karyawan</li>
+                <li class="action-item">Peningkatan sistem deteksi dan respons insiden (SIEM)</li>
+                <li class="action-item">Notifikasi dan pemantauan data gratis untuk nasabah yang terdampak</li>
+            </ul>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="card">
+            <h2 class="section-title">Dampak dan Implikasi</h2>
+            
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h4><i class="fas fa-user-shield"></i> Dampak bagi Nasabah</h4>
+                    <p>Nasabah yang datanya mungkin terbocorkan berisiko mengalami berbagai bentuk kejahatan siber seperti phishing, penipuan, atau penyalahgunaan identitas. Bank Jatim menyarankan nasabah untuk lebih waspada terhadap komunikasi mencurigakan.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <h4><i class="fas fa-balance-scale"></i> Implikasi Regulasi</h4>
+                    <p>Insiden ini memicu diskusi tentang pentingnya penerapan UU PDP (Perlindungan Data Pribadi) yang lebih ketat di sektor perbankan Indonesia. OJK mengeluarkan surat edaran tentang peningkatan standar keamanan siber.</p>
+                </div>
+                
+                <div class="impact-card">
+                    <h4><i class="fas fa-chart-line"></i> Dampak Reputasi</h4>
+                    <p>Meskipun Bank Jatim menyatakan data inti aman, insiden ini mempengaruhi kepercayaan publik. Bank melakukan berbagai upaya pemulihan reputasi melalui komunikasi transparan dengan stakeholders.</p>
+                </div>
+            </div>
+            
+            <h3>Rekomendasi untuk Nasabah</h3>
+            <div class="data-list">
+                <div class="data-item">Segera ganti password akun online banking dan email terkait</div>
+                <div class="data-item">Aktifkan verifikasi dua faktor untuk semua layanan finansial</div>
+                <div class="data-item">Waspada terhadap komunikasi mencurigakan yang mengatasnamakan bank</div>
+                <div class="data-item">Pantau laporan kredit secara berkala</div>
+                <div class="data-item">Laporkan aktivitas mencurigakan ke bank segera</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            
+            <div class="footer-bottom">
+                <p>© 2023 Layanan Informasi Keamanan Siber. Semua hak dilindungi. | Informasi diperbarui pada Juni 2023</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
